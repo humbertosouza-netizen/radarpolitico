@@ -57,6 +57,11 @@ export default async function SettingsPage() {
       redirect('/login')
     }
 
+    // Garantir que userData não é null antes de passar para o componente
+    if (!userData) {
+      redirect('/login')
+    }
+
     return <SettingsClient user={userData} />
   } catch (error) {
     console.error('Erro na página de settings:', error)
