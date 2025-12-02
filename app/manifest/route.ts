@@ -1,0 +1,52 @@
+import { NextResponse } from 'next/server'
+
+export async function GET() {
+  const manifest = {
+    name: 'Radar Político',
+    short_name: 'Radar Político',
+    description: 'Sistema de inteligência política que monitora grupos de WhatsApp usando IA',
+    start_url: '/dashboard',
+    display: 'standalone',
+    background_color: '#050B16',
+    theme_color: '#050B16',
+    orientation: 'portrait-primary',
+    icons: [
+      {
+        src: '/icon-192.png',
+        sizes: '192x192',
+        type: 'image/png',
+        purpose: 'any maskable',
+      },
+      {
+        src: '/icon-512.png',
+        sizes: '512x512',
+        type: 'image/png',
+        purpose: 'any maskable',
+      },
+    ],
+    categories: ['productivity', 'business'],
+    shortcuts: [
+      {
+        name: 'Monitoramento',
+        short_name: 'Monitor',
+        description: 'Acessar monitoramento em tempo real',
+        url: '/dashboard',
+        icons: [{ src: '/icon-192.png', sizes: '192x192' }],
+      },
+      {
+        name: 'Palavras-chave',
+        short_name: 'Keywords',
+        description: 'Gerenciar palavras-chave',
+        url: '/dashboard/keywords',
+        icons: [{ src: '/icon-192.png', sizes: '192x192' }],
+      },
+    ],
+  }
+
+  return NextResponse.json(manifest, {
+    headers: {
+      'Content-Type': 'application/manifest+json',
+    },
+  })
+}
+

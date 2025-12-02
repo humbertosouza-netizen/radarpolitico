@@ -1,0 +1,2 @@
+export { RadarLogo } from './RadarLogo'
+
