@@ -24,12 +24,32 @@ npm install
 
 ### 2. Configurar variáveis de ambiente
 
-As variáveis de ambiente já estão configuradas no código, mas certifique-se de que o arquivo `.env.local` existe com:
+#### Para desenvolvimento local:
 
-```
-NEXT_PUBLIC_SUPABASE_URL=https://fhnsjvypxnvhqipgqghp.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZobnNqdnlweG52aHFpcGdxZ2hwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA3MDQ2MTUsImV4cCI6MjA2NjI4MDYxNX0.EzrR2srkL1XLlVMjY2wf4R4CokfQdM7hm9e641SliHg
-```
+1. Copie o arquivo `.env.example` para `.env.local`:
+   ```bash
+   cp .env.example .env.local
+   ```
+
+2. Preencha o arquivo `.env.local` com suas credenciais:
+   ```
+   NEXT_PUBLIC_SUPABASE_URL=https://fhnsjvypxnvhqipgqghp.supabase.co
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZobnNqdnlweG52aHFpcGdxZ2hwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA3MDQ2MTUsImV4cCI6MjA2NjI4MDYxNX0.EzrR2srkL1XLlVMjY2wf4R4CokfQdM7hm9e641SliHg
+   ```
+
+#### Para deploy (Vercel/Netlify/etc):
+
+⚠️ **IMPORTANTE**: Configure as variáveis de ambiente diretamente no painel do seu provedor de hospedagem.
+
+**No Vercel:**
+1. Acesse **Settings** → **Environment Variables**
+2. Adicione:
+   - `NEXT_PUBLIC_SUPABASE_URL` = `https://fhnsjvypxnvhqipgqghp.supabase.co`
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY` = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZobnNqdnlweG52aHFpcGdxZ2hwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA3MDQ2MTUsImV4cCI6MjA2NjI4MDYxNX0.EzrR2srkL1XLlVMjY2wf4R4CokfQdM7hm9e641SliHg`
+3. Selecione todos os ambientes (Production, Preview, Development)
+4. Faça um novo deploy
+
+Veja mais detalhes em `DEPLOY.md`
 
 ### 3. Configurar o banco de dados no Supabase
 
